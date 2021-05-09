@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return redirect()->route('home');
 });
 
 Auth::routes();
@@ -25,19 +25,26 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('profile', ['as' => 'profile.edit', 'uses' => 'ProfileController@edit']);
 	Route::put('profile', ['as' => 'profile.update', 'uses' => 'ProfileController@update']);
 	Route::put('profile/password', ['as' => 'profile.password', 'uses' => 'ProfileController@password']);
-	// fornecedores
-	Route::get('/fornecedor',['as'=>'fornecedor.index', 'uses'=>'FornecedorCOntroller@index']);
-	Route::get('/fornecedor/create',['as'=>'fornecedor.create', 'uses'=>'FornecedorCOntroller@create']);
-	Route::post('/fornecedor/store',['as'=>'fornecedor.store', 'uses'=>'FornecedorCOntroller@store']);
-	Route::get('/fornecedor/edit/{id}',['as'=>'fornecedor.edit', 'uses'=>'FornecedorCOntroller@edit']);
-	Route::put('/fornecedor/update/{id}',['as'=>'fornecedor.update', 'uses'=>'FornecedorCOntroller@update']);
-	Route::delete('/fornecedor/destroy/{id}',['as'=>'fornecedor.destroy', 'uses'=>'FornecedorCOntroller@destroy']);
-	// produtos
-	Route::get('/produto',['as'=>'produto.index','uses'=>'ProdutoController@index']);
-	Route::get('/produto/create',['as'=>'produto.create', 'uses'=>'ProdutoController@create']);
-	Route::post('/produto/store',['as'=>'produto.store', 'uses'=>'ProdutoController@store']);
-	Route::get('/produto/edit/{id}',['as'=>'produto.edit', 'uses'=>'ProdutoController@edit']);
-	Route::put('/produto/update/{id}',['as'=>'produto.update', 'uses'=>'ProdutoController@update']);
-	Route::delete('/produto/destroy/{id}',['as'=>'produto.destroy', 'uses'=>'ProdutoController@destroy']);
+	// Alunoes
+	Route::get('/aluno',['as'=>'aluno.index', 'uses'=>'AlunoCOntroller@index']);
+	Route::get('/aluno/create',['as'=>'aluno.create', 'uses'=>'AlunoCOntroller@create']);
+	Route::post('/aluno/store',['as'=>'aluno.store', 'uses'=>'AlunoCOntroller@store']);
+	Route::get('/aluno/edit/{id}',['as'=>'aluno.edit', 'uses'=>'AlunoCOntroller@edit']);
+	Route::put('/aluno/update/{id}',['as'=>'aluno.update', 'uses'=>'AlunoCOntroller@update']);
+	Route::delete('/aluno/destroy/{id}',['as'=>'aluno.destroy', 'uses'=>'AlunoCOntroller@destroy']);
+	// areas
+	Route::get('/area',['as'=>'area.index','uses'=>'AreaController@index']);
+	Route::get('/area/create',['as'=>'area.create', 'uses'=>'AreaController@create']);
+	Route::post('/area/store',['as'=>'area.store', 'uses'=>'AreaController@store']);
+	Route::get('/area/edit/{id}',['as'=>'area.edit', 'uses'=>'AreaController@edit']);
+	Route::put('/area/update/{id}',['as'=>'area.update', 'uses'=>'AreaController@update']);
+	Route::delete('/area/destroy/{id}',['as'=>'area.destroy', 'uses'=>'AreaController@destroy']);
+	// Professor
+	Route::get('/professor',['as'=>'professor.index','uses'=>'ProfessorController@index']);
+	Route::get('/professor/create',['as'=>'professor.create', 'uses'=>'ProfessorController@create']);
+	Route::post('/professor/store',['as'=>'professor.store', 'uses'=>'ProfessorController@store']);
+	Route::get('/professor/edit/{id}',['as'=>'professor.edit', 'uses'=>'ProfessorController@edit']);
+	Route::put('/professor/update/{id}',['as'=>'professor.update', 'uses'=>'ProfessorController@update']);
+	Route::delete('/professor/destroy/{id}',['as'=>'professor.destroy', 'uses'=>'ProfessorController@destroy']);
 });
 

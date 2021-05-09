@@ -3,18 +3,18 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Fornecedor;
+use App\Aluno;
 
-class FornecedorController extends Controller
+class AlunoController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Fornecedor $model)
+    public function index(Aluno $model)
     {
-        return view('fornecedor.index', ['fornecedores' => $model->paginate(15)]);
+        return view('aluno.index', ['alunos' => $model->paginate(15)]);
     }
 
     /**
@@ -24,7 +24,7 @@ class FornecedorController extends Controller
      */
     public function create()
     {
-        return view('fornecedor.create');
+        return view('aluno.create');
     }
 
     /**
@@ -36,9 +36,9 @@ class FornecedorController extends Controller
     public function store(Request $request)
     {
         
-        Fornecedor::create($request->all());
+        aluno::create($request->all());
         
-        return redirect()->route('fornecedor.index')->withStatus(__('Fornecedor Cadastrado.'));
+        return redirect()->route('aluno.index')->withStatus(__('aluno Cadastrado.'));
     }
 
     /**
@@ -60,8 +60,8 @@ class FornecedorController extends Controller
      */
     public function edit($id)
     {
-        $fornecedor=Fornecedor::findOrFail($id);
-        return view('fornecedor.edit', compact('fornecedor'));
+        $aluno=aluno::findOrFail($id);
+        return view('aluno.edit', compact('aluno'));
     }
 
     /**
@@ -73,10 +73,10 @@ class FornecedorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $obj    = Fornecedor::where('id',$id)->first();
+        $obj    = aluno::where('id',$id)->first();
         $obj->update($request->all());
 
-        return redirect()->route('fornecedor.index')->withStatus(__('Fornecedor Alterado Com Sucesso.'));
+        return redirect()->route('aluno.index')->withStatus(__('Aluno Alterado Com Sucesso.'));
     }
 
     /**
@@ -87,8 +87,8 @@ class FornecedorController extends Controller
      */
     public function destroy($id)
     {
-        $fornecedor=Fornecedor::findOrFail($id);
-        $fornecedor->delete();
-        return redirect()->route('fornecedor.index')->withStatus(__('Fornecedor excluido com sucesso.'));
+        $aluno=aluno::findOrFail($id);
+        $aluno->delete();
+        return redirect()->route('aluno.index')->withStatus(__('Aluno excluido com sucesso.'));
     }
 }

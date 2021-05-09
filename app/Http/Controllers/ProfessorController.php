@@ -3,22 +3,19 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Produto;
-use App\Categoria;
-use App\Estoque;
-use App\Fornecedor;
-
-class ProdutoController extends Controller
+use App\Professor;
+use App\Area;
+class ProfessorController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Produto $model)
+    public function index(Professor $model)
     {
-       // dd($model);
-        return view('produto.index', ['produtos' => $model->paginate(15)]);
+       //dd($model);
+        return view('professor.index', ['professores' => $model->paginate(15)]);
     }
 
     /**
@@ -28,10 +25,8 @@ class ProdutoController extends Controller
      */
     public function create()
     {
-        $categoria= Categoria::all()->pluck('descricao','id');
-        $fornecedor = Fornecedor::all()->pluck('razao_social','id');
-       
-        return view('produto.create', compact('categoria','fornecedor'));
+        $areas= Area::all()->pluck('nome','id');
+        return view('professor.create', compact('areas'));
     }
 
     /**
@@ -42,11 +37,9 @@ class ProdutoController extends Controller
      */
     public function store(Request $request)
     {
-        $filler = $request->all();
-        $produtos = Produto::create($filler);
-        $filler['produto'] =  $produtos['id'];
-        Estoque::create($filler);
-        return redirect()->route('produto.index')->withStatus(__('Produto Cadastrado.'));
+
+        Professor::create($request->all());
+        return redirect()->route('professor.index')->withStatus(__('Produto Cadastrado.'));
     }
 
     /**
@@ -68,10 +61,7 @@ class ProdutoController extends Controller
      */
     public function edit($id)
     {
-        $produto=Produto::findOrFail($id);
-        $categoria= Categoria::all()->pluck('descricao','id');
-        $fornecedor = Fornecedor::all()->pluck('razao_social','id');
-        return view('produto.edit', compact('categoria','fornecedor','produto'));
+        //
     }
 
     /**
@@ -83,10 +73,7 @@ class ProdutoController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $obj    = Produto::where('id',$id)->first();
-        $obj->update($request->all());
-
-        return redirect()->route('produto.index')->withStatus(__('Produto Alterado Com Sucesso.'));
+        //
     }
 
     /**
@@ -97,8 +84,6 @@ class ProdutoController extends Controller
      */
     public function destroy($id)
     {
-        $produto=Fornecedor::findOrFail($id);
-        $produto->delete();
-        return redirect()->route('produto.index')->withStatus(__('Produto excluido com sucesso.'));
+        //
     }
 }

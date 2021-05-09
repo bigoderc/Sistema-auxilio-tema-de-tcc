@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('Fornecedores')])
+@extends('layouts.app', ['title' => __('Alunos')])
 
 @section('content')
 @include('users.partials.header', [
@@ -13,10 +13,10 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h3 class="mb-0">Fornecedores</h3>
+                            <h3 class="mb-0">Alunos</h3>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('fornecedor.create') }}" class="btn btn-sm btn-primary">Adicionar Fornecedor</a>
+                            <a href="{{ route('aluno.create') }}" class="btn btn-sm btn-primary">Adicionar Aluno</a>
                         </div>
                     </div>
                 </div>
@@ -28,33 +28,29 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">CNPJ</th>
-                                <th scope="col">Razão Social</th>
-                                <th scope="col">Fantasia</th>
-                                <th scope="col">Endereço</th>
-                                <th scope="col">Cidade</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Matricula</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($fornecedores as $fornecedor)
+                        @foreach($alunos as $aluno)
                             <tr>
-                                <td>{{$fornecedor->cnpj}}</td>
+                                <td>{{$aluno->id}}</td>
                                 <td>
-                                  {{$fornecedor->razao_social}}</a>
+                                  {{$aluno->nome}}</a>
                                 </td>
-                                <td>{{$fornecedor->fantasia}}</td>
-                                <td>{{$fornecedor->endereco}}</td>
-                                <td>{{$fornecedor->cidade}}</td>
+                                <td>{{$aluno->matricula}}</td>
                                 <td class="td-actions text-right">   
-                                    <form action="{{ route('fornecedor.destroy', $fornecedor->id) }}" method="post">
+                                    <form action="{{ route('aluno.destroy', $aluno->id) }}" method="post">
                                         @csrf
                                         @method('delete')
                                     
-                                        <a rel="tooltip" class="btn btn-info btn-link" href="{{ route('fornecedor.edit', $fornecedor->id) }}" data-original-title="" title="">
+                                        <a rel="tooltip" class="btn btn-info btn-link" href="{{ route('aluno.edit', $aluno->id) }}" data-original-title="" title="">
                                         <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        <button type="button" class="btn btn-danger btn-link" data-original-title="" title="" onclick="confirm('{{ __("Deseja excluir o fornecedor $fornecedor->nome?") }}') ? this.parentElement.submit() : ''">
+                                        <button type="button" class="btn btn-danger btn-link" data-original-title="" title="" onclick="confirm('{{ __("Deseja excluir o aluno $aluno->nome?") }}') ? this.parentElement.submit() : ''">
                                             <i class="far fa-trash-alt"></i>
                                         </button>
                                     </form>

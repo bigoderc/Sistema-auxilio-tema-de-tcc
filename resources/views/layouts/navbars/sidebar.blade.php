@@ -6,7 +6,7 @@
         </button>
         <!-- Brand -->
         <a class="navbar-brand pt-1" href="{{ route('home') }}">
-            <img src="{{ asset('argon') }}/img/brand/gestao-de-estoques-just-in-time-x-just-in-case2.png" class="navbar-brand-img" alt="...">
+            <img src="{{ asset('argon') }}/img/brand/gesta-de-estoques-just-in-time-x-just-in-case2.png" class="navbar-brand-img" alt="...">
         </a>
         <!-- User -->
         <ul class="nav align-items-center d-md-none">
@@ -78,33 +78,21 @@
                     </a>      
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active"  href="{{ route('fornecedor.index') }}">
-                    <i class="fas fa-shipping-fast"></i>
-                        <span class="nav-link-text" >{{ __('Fornecedor') }}</span>
+                    <a class="nav-link active"  href="{{ route('aluno.index') }}">
+                    <i class="fas fa-user"></i>
+                        <span class="nav-link-text" >{{ __('Aluno') }}</span>
                     </a>      
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active"  href="{{ route('produto.index') }}">
+                    <a class="nav-link active"  href="{{ route('professor.index') }}">
                     <i class="fab fa-product-hunt"></i>
-                        <span class="nav-link-text" >{{ __('Produto') }}</span>
+                        <span class="nav-link-text" >{{ __('Professor') }}</span>
                     </a>      
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active"  href="{{ route('produto.index') }}">
-                    <i class="fa fa-list"></i>
-                        <span class="nav-link-text" >{{ __('Lista de Compras') }}</span>
-                    </a>      
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active"  href="{{ route('produto.index') }}">
-                    <i class="fas fa-chart-bar"></i>
-                        <span class="nav-link-text" >{{ __('Relatórios') }}</span>
-                    </a>      
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active"  href="{{ route('produto.index') }}">
-                    <i class="fas fa-file-import"></i>
-                        <span class="nav-link-text" >{{ __('Importador de Arquivos') }}</span>
+                    <a class="nav-link active"  href="{{ route('area.index') }}">
+                    <i class="fa fa-list-alt"></i>
+                        <span class="nav-link-text" >{{ __('Aréas') }}</span>
                     </a>      
                 </li>
             </ul>

@@ -1,4 +1,4 @@
-@extends('layouts.app', ['title' => __('Produtos')])
+@extends('layouts.app', ['title' => __('areas')])
 
 @section('content')
 @include('users.partials.header', [
@@ -12,10 +12,10 @@
                 <div class="card-header border-0">
                     <div class="row align-items-center">
                         <div class="col-8">
-                            <h3 class="mb-0">Produtos</h3>
+                            <h3 class="mb-0">areas</h3>
                         </div>
                         <div class="col-4 text-right">
-                            <a href="{{ route('produto.create') }}" class="btn btn-sm btn-primary">Adicionar Produto</a>
+                            <a href="{{ route('area.create') }}" class="btn btn-sm btn-primary">Adicionar area</a>
                         </div>
                     </div>
                 </div>
@@ -26,35 +26,30 @@
                     <table class="table align-items-center table-flush">
                         <thead class="thead-light">
                             <tr>
-                                <th scope="col">Produto</th>
-                                <th scope="col">Categoria</th>
-                                <th scope="col">Unidade</th>
-                                <th scope="col">Valor Unitário</th>
-                                <th scope="col">Última Saída</th>
-                                <th scope="col">Última Entrada</th>
+                                <th scope="col">ID</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Descrição</th>
+                               
                                 <th scope="col"></th>
                             </tr>
                         </thead>
                         <tbody>
-                        @foreach($produtos as $produto)
+                        @foreach($areas as $area)
                             <tr>
-                                <td>{{$produto->nome}}</td>
+                                <td>{{$area->id}}</td>
+                                <td>{{$area->nome}}</td>
                                 <td>
-                                    {{$produto->categorias->descricao}}
+                                    {{$area->descricao}}
                                 </td>
-                                <td>{{$produto->estoque->unidade}}</td>
-                                <td>{{$produto->valor_unitario}}</td>
-                                <td>{{$produto->estoque->ultima_saida}}</td>
-                                <td>{{$produto->estoque->ultima_entrada}}</td>
                                 <td class="td-actions text-right">   
-                                    <form action="{{ route('produto.destroy', $produto->id) }}" method="post">
+                                    <form action="{{ route('area.destroy', $area->id) }}" method="post">
                                         @csrf
                                         @method('delete')
                                     
-                                        <a rel="tooltip" class="btn btn-info btn-link" href="{{ route('produto.edit', $produto->id) }}" data-original-title="" title="">
+                                        <a rel="tooltip" class="btn btn-info btn-link" href="{{ route('area.edit', $area->id) }}" data-original-title="" title="">
                                         <i class="fas fa-pencil-alt"></i>
                                         </a>
-                                        <button type="button" class="btn btn-danger btn-link" data-original-title="" title="" onclick="confirm('{{ __("Deseja excluir o produto $produto->nome?") }}') ? this.parentElement.submit() : ''">
+                                        <button type="button" class="btn btn-danger btn-link" data-original-title="" title="" onclick="confirm('{{ __("Deseja excluir o area $area->nome?") }}') ? this.parentElement.submit() : ''">
                                             <i class="far fa-trash-alt"></i>
                                         </button>
                                     </form>
