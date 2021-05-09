@@ -61,7 +61,9 @@ class ProfessorController extends Controller
      */
     public function edit($id)
     {
-        //
+        $professor=Professor::findOrFail($id);
+        $areas= Area::all()->pluck('nome','id');
+        return view('professor.edit', compact('professor','areas'));
     }
 
     /**
@@ -73,7 +75,10 @@ class ProfessorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $obj    = Professor::where('id',$id)->first();
+        $obj->update($request->all());
+
+        return redirect()->route('professor.index')->withStatus(__('area Alterado Com Sucesso.'));
     }
 
     /**
@@ -84,6 +89,8 @@ class ProfessorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $professor=Professor::findOrFail($id);
+        $professor->delete();
+        return redirect()->route('professor.index')->withStatus(__('area excluido com sucesso.'));
     }
 }

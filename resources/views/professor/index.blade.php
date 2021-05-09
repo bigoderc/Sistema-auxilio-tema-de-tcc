@@ -28,8 +28,8 @@
                             <tr>
                                 <th scope="col">ID</th>
                                 <th scope="col">Nome</th>
-                                <th scope="col">Matricúla</th>
-                               
+                                <th scope="col">Matrícula</th>
+                                <th scope="col">Área</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -40,6 +40,9 @@
                                 <td>{{$professor->nome}}</td>
                                 <td>
                                     {{$professor->matricula}}
+                                </td>
+                                <td>
+                                    {{$professor->areas->nome}}
                                 </td>
                                 <td class="td-actions text-right">   
                                     <form action="{{ route('professor.destroy', $professor->id) }}" method="post">

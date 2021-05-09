@@ -14,15 +14,15 @@
                 <div class="card bg-secondary shadow">
                     <div class="card-header bg-white border-0">
                         <div class="row align-items-center">
-                            <h3 class="col-12 mb-0">{{ __('Cadastro do area') }} {{$area->nome}}</h3>
+                            <h3 class="col-12 mb-0">{{ __('Cadastro do professor') }} {{$professor->nome}}</h3>
                         </div>
                     </div>
                     <div class="card-body">
-                        <form method="post" action="{{ route('area.update',$area->id) }}" autocomplete="off">
+                        <form method="post" action="{{ route('professor.update',$professor->id) }}" autocomplete="off">
                             @csrf
                             @method('put')
 
-                            <h6 class="heading-small text-muted mb-4">{{ __('Dados do area') }}</h6>
+                            <h6 class="heading-small text-muted mb-4">{{ __('Dados do professor') }}</h6>
                             
                             @if (session('status'))
                                 <div class="alert alert-success alert-dismissible fade show" role="alert">
@@ -35,14 +35,27 @@
                             <div class="row">
                                 <div class="col">
                                     <div class="form-group{{ $errors->has('qtde_embalagem') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-qtde_embalagem">{{ __('Quantidade na Embalagem') }}</label>
-                                        <input type="number"  min="1" name="qtde_embalagem" id="input-qtde_embalagem" class="form-control form-control-alternative{{ $errors->has('qtde_embalagem') ? ' is-invalid' : '' }}" placeholder="{{ __('Nome') }}" value="{{ old('qtde_embalagem', $area->nome) }}" required>
+                                        <label class="form-control-label" for="input-qtde_embalagem">{{ __('Nome') }}</label>
+                                        <input type="text"  min="1" name="nome" id="input-qtde_embalagem" class="form-control form-control-alternative{{ $errors->has('qtde_embalagem') ? ' is-invalid' : '' }}" placeholder="{{ __('Nome') }}" value="{{ old('qtde_embalagem', $professor->nome) }}" required>
                                     </div>
                                 </div>
                                 <div class="col">
-                                    <div class="form-group{{ $errors->has('observacao') ? ' has-danger' : '' }}">
-                                        <label class="form-control-label" for="input-observacao">{{ __('Descrição') }}</label>
-                                        <textarea id="story" name="descricao"rows="2" cols="33" class="form-control form-control-alternative{{ $errors->has('observacao') ? ' is-invalid' : '' }}" placeholder="{{ __('Descrição') }}" value="{{ old('observacao', $area->descricao) }}"></textarea>
+                                    <div class="form-group{{ $errors->has('qtde_embalagem') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-qtde_embalagem">{{ __('Matrícula') }}</label>
+                                        <input type="text"  min="1" name="matricula" id="input-qtde_embalagem" class="form-control form-control-alternative{{ $errors->has('qtde_embalagem') ? ' is-invalid' : '' }}" placeholder="{{ __('Nome') }}" value="{{ old('qtde_embalagem', $professor->matricula) }}" required>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group{{ $errors->has('categoria') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-categoria">{{ __('Áreas') }}</label>
+                                        <select class="form-control{{ $errors->has('categoria') ? ' is-invalid' : '' }}" name="fk_areas_id"    required="true" aria-required="true">
+                                            <option value="{{ old('qtde_embalagem', $professor->fk_areas_id) }}">{{$professor->areas->nome}}</option>
+                                            @foreach($areas as $key=>$value)
+                                            <option value="{{$key}}">
+                                                {{ $value}}
+                                            </option>
+                                            @endforeach
+                                        </select>
                                     </div>
                                 </div>
                             </div>
