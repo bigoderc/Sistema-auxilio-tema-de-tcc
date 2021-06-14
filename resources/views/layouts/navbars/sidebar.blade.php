@@ -95,6 +95,18 @@
                         <span class="nav-link-text" >{{ __('Aréas') }}</span>
                     </a>      
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link active"  href="{{ route('tema.index') }}">
+                    <i class="fa fa-list-alt"></i>
+                        <span class="nav-link-text" >{{ __('Temas') }}</span>
+                    </a>      
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active"  href="{{ route('projeto.index') }}">
+                    <i class="fa fa-list-alt"></i>
+                        <span class="nav-link-text" >{{ __('Projetos') }}</span>
+                    </a>      
+                </li>
             </ul>
         </div>
     </div>

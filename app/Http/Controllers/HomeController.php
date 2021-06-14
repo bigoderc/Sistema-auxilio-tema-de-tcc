@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Tema;
 class HomeController extends Controller
 {
     /**
@@ -19,8 +19,9 @@ class HomeController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function index()
+    public function index(Tema $model)
     {
-        return view('dashboard');
+       //dd($model);
+        return view('dashboard', ['temas' => $model->paginate(15)]);
     }
 }

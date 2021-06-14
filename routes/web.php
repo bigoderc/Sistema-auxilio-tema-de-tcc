@@ -46,5 +46,19 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::get('/professor/edit/{id}',['as'=>'professor.edit', 'uses'=>'ProfessorController@edit']);
 	Route::put('/professor/update/{id}',['as'=>'professor.update', 'uses'=>'ProfessorController@update']);
 	Route::delete('/professor/destroy/{id}',['as'=>'professor.destroy', 'uses'=>'ProfessorController@destroy']);
+	//tema
+	Route::get('/tema',['as'=>'tema.index','uses'=>'TemaController@index']);
+	Route::get('/tema/create',['as'=>'tema.create', 'uses'=>'TemaController@create']);
+	Route::post('/tema/store',['as'=>'tema.store', 'uses'=>'TemaController@store']);
+	Route::get('/tema/edit/{id}',['as'=>'tema.edit', 'uses'=>'TemaController@edit']);
+	Route::put('/tema/update/{id}',['as'=>'tema.update', 'uses'=>'TemaController@update']);
+	Route::delete('/tema/destroy/{id}',['as'=>'tema.destroy', 'uses'=>'TemaController@destroy']);
+	//projeto
+	Route::get('/projeto',['as'=>'projeto.index','uses'=>'ProjetoController@index']);
+	Route::get('/projeto/create',['as'=>'projeto.create', 'uses'=>'ProjetoController@create']);
+	Route::post('/projeto/store',['as'=>'projeto.store', 'uses'=>'ProjetoController@store']);
+	Route::get('/projeto/edit/{id}',['as'=>'projeto.edit', 'uses'=>'ProjetoController@edit']);
+	Route::put('/projeto/update/{id}',['as'=>'projeto.update', 'uses'=>'ProjetoController@update']);
+	Route::delete('/projeto/destroy/{id}',['as'=>'projeto.destroy', 'uses'=>'ProjetoController@destroy']);
 });
 
