@@ -29,9 +29,10 @@
                         <thead class="thead-light">
                             <tr>
                                 <th scope="col">ID</th>
-                                <th scope="col">Nome</th>
-                               
+                                <th scope="col">Tema</th>
                                 <th scope="col">Aréa</th>
+                                <th scope="col">Professor</th>
+                                <th scope="col">Aluno</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -43,11 +44,15 @@
                                   {{$projeto->nome}}</a>
                                 </td>
                                 <td>{{$projeto->areas->nome}}</td>
+                                <td>{{$projeto->professor->nome}}</td>
+                                <td>{{$projeto->aluno}}</td>
                                 <td class="td-actions text-right">   
                                     <form action="{{ route('projeto.destroy', $projeto->id) }}" method="post">
                                         @csrf
                                         @method('delete')
-                                    
+                                        <a rel="tooltip" class="btn btn-success btn-link" href="{{ route('projeto.edit', $projeto->id) }}" data-original-title="" title="">
+                                            <i class="fas fa-eye"></i>
+                                        </a>
                                         <a rel="tooltip" class="btn btn-info btn-link" href="{{ route('projeto.edit', $projeto->id) }}" data-original-title="" title="">
                                         <i class="fas fa-pencil-alt"></i>
                                         </a>

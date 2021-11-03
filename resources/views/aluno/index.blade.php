@@ -31,6 +31,8 @@
                                 <th scope="col">ID</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Matricula</th>
+                                <th scope="col">Turma</th>
+                                <th scope="col">Periodo</th>
                                 <th scope="col"></th>
                             </tr>
                         </thead>
@@ -42,6 +44,8 @@
                                   {{$aluno->nome}}</a>
                                 </td>
                                 <td>{{$aluno->matricula}}</td>
+                                <td>{{$aluno->turma}}</td>
+                                <td>{{$aluno->periodo}}</td>
                                 <td class="td-actions text-right">   
                                     <form action="{{ route('aluno.destroy', $aluno->id) }}" method="post">
                                         @csrf

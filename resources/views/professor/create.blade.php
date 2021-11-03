@@ -60,6 +60,34 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group{{ $errors->has('observacao') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-observacao">{{ __('Formação Acadêmica') }}</label>
+                                        <textarea id="story" name="formacao_academica"rows="10" cols="20" class="form-control form-control-alternative{{ $errors->has('observacao') ? ' is-invalid' : '' }}" placeholder="{{ __('Formação Acadêmica') }}" value="{{ old('Descrição') }}"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group{{ $errors->has('observacao') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-observacao">{{ __('Resumo') }}</label>
+                                        <textarea id="story" name="resumo"rows="10" cols="20" class="form-control form-control-alternative{{ $errors->has('observacao') ? ' is-invalid' : '' }}" placeholder="{{ __('Resumo') }}" value="{{ old('Descrição') }}"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <div class="form-group{{ $errors->has('observacao') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-observacao">{{ __('Projetos Desenvolvidos') }}</label>
+                                        <textarea id="story" name="projetos_desenvolvido"rows="10" cols="20" class="form-control form-control-alternative{{ $errors->has('observacao') ? ' is-invalid' : '' }}" placeholder="{{ __('Projetos Desenvolvidos') }}" value="{{ old('Descrição') }}"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="form-group{{ $errors->has('observacao') ? ' has-danger' : '' }}">
+                                        <label class="form-control-label" for="input-observacao">{{ __('Currículo Lattes') }}</label>
+                                        <input type="text"  min="1" name="curriculo_lattes" id="input-qtde_embalagem" class="form-control form-control-alternative{{ $errors->has('qtde_embalagem') ? ' is-invalid' : '' }}" placeholder="{{ __('Currículo Lattes') }}" value="{{ old('qtde_embalagem') }}" required>
+                                    </div>
+                                </div>
+                            </div>
                                     <div class="text-left">
                                         <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>
                                     </div>

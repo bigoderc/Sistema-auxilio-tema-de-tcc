@@ -50,6 +50,42 @@
                                         placeholder="{{ __('Matricula') }}" value="{{ old('fantasia') }}" required>
                                 </div>
                             </div>
+                            <div class="col">
+                                <div class="form-group{{ $errors->has('fantasia') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-nome">{{ __('CPF') }}</label>
+                                    <input type="text" maxlength="11" name="cpf" id="input-fantasia"
+                                        class="form-control form-control-alternative{{ $errors->has('fantasia') ? ' is-invalid' : '' }}"
+                                        placeholder="{{ __('CPF') }}" value="{{ old('fantasia') }}" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group{{ $errors->has('fantasia') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-nome">{{ __('Turma') }}</label>
+                                    <input type="text" name="turma" id="input-fantasia"
+                                        class="form-control form-control-alternative{{ $errors->has('fantasia') ? ' is-invalid' : '' }}"
+                                        placeholder="{{ __('Turma') }}" value="{{ old('fantasia') }}" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group{{ $errors->has('fantasia') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-nome">{{ __('Período') }}</label>
+                                    <input type="text" maxlength="1" name="periodo" id="input-fantasia"
+                                        class="form-control form-control-alternative{{ $errors->has('fantasia') ? ' is-invalid' : '' }}"
+                                        placeholder="{{ __('Período') }}" value="{{ old('fantasia') }}" required>
+                                </div>
+                            </div>
+                            <div class="col">
+                                <div class="form-group{{ $errors->has('fantasia') ? ' has-danger' : '' }}">
+                                    <label class="form-control-label" for="input-nome">{{ __('Situação') }}</label>
+                                    <select class="form-control{{ $errors->has('categoria') ? ' is-invalid' : '' }}" name="ativo"    required="true" aria-required="true">
+                                        <option value="S">Ativo</option>
+                                        <option value="N">Inativo</option>      
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                         <div class="text-left">
                             <button type="submit" class="btn btn-success mt-4">{{ __('Save') }}</button>
